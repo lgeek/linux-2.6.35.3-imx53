@@ -371,7 +371,7 @@ static struct fb_videomode video_modes[] = {
 	 "1080P60", 60, 1920, 1080, 6381,
 	 58, 278,
 	 1, 38,
-	 72, 3,
+	 72, 10,
 	 0,
 	 FB_VMODE_NONINTERLACED,
 	 0,},

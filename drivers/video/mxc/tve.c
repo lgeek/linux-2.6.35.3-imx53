@@ -269,7 +269,7 @@ static struct fb_videomode video_modes[] = {
 	"1080P60", 60, 1920, 1080, 6381,
 	58, 278,
 	1, 38,
-	72, 3,
+	72, 10,
 	0,
 	FB_VMODE_NONINTERLACED,
 	0,},
@@ -462,8 +462,8 @@ static int tve_setup(int mode)
 		di1_clock_rate = 108000000;
 		break;
 	case TVOUT_FMT_VGA_1080P60:
-		parent_clock_rate = 156700000*2;
-		di1_clock_rate = 156700000;
+		parent_clock_rate = 158100000*2;
+		di1_clock_rate = 158100000;
 		break;
 	}
 	if (enabled)
@@ -921,7 +921,7 @@ static int tve_resume(struct fb_info *fbi)
 			tve_disable();
 			tve.cur_mode = TVOUT_FMT_OFF;
 			tve_setup(TVOUT_FMT_VGA_1080P60);
-			ipu_set_vga_delay(fbi, 2100, 1117);
+			ipu_set_vga_delay(fbi, 2280, 1098);
 		}
 		tve_enable();
 	}
@@ -1056,7 +1056,7 @@ int tve_fb_event(struct notifier_block *nb, unsigned long val, void *v)
 			tve_setup(TVOUT_FMT_VGA_1080P60);
 			if (tve.blank == FB_BLANK_UNBLANK) {
 				tve_enable();
-				ipu_set_vga_delay(fbi, 2100, 1117);
+				ipu_set_vga_delay(fbi, 2280, 1098);
 			}
 		} else {
 			tve_disable();
@@ -1155,7 +1155,7 @@ int tve_fb_event(struct notifier_block *nb, unsigned long val, void *v)
 						tve_setup(TVOUT_FMT_VGA_1080P60);
 					}
 					tve_enable();
-					ipu_set_vga_delay(fbi, 2100, 1117);
+					ipu_set_vga_delay(fbi, 2280, 1098);
 				} else {
 					tve_setup(TVOUT_FMT_OFF);
 				}
